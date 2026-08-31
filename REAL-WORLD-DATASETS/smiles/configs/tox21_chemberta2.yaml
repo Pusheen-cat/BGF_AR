@@ -1,0 +1,32 @@
+name: tox21_chemberta2
+task:
+  name: tox21
+  type: classification
+  n_tasks: 12
+data:
+  dataset: tox21
+  splitter: scaffold
+  cache_dir: data
+  max_length: 256
+model:
+  type: chemberta
+  pretrained: DeepChem/ChemBERTa-77M-MLM
+  dropout: 0.1
+train:
+  epochs: 25
+  batch_size: 32
+  lr: 2.0e-05
+  weight_decay: 0.01
+  scheduler: linear
+  warmup_ratio: 0.1
+  grad_clip: 1.0
+  patience: 5
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+output:
+  results_dir: results
+  ckpt_dir: checkpoints

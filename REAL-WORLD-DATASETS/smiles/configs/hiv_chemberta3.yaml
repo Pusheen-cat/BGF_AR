@@ -1,0 +1,32 @@
+name: hiv_chemberta3
+task:
+  name: hiv
+  type: classification
+  n_tasks: 1
+data:
+  dataset: hiv
+  splitter: scaffold
+  cache_dir: data
+  max_length: 256
+model:
+  type: chemberta
+  pretrained: DeepChem/ChemBERTa-10M-MTR
+  dropout: 0.1
+train:
+  epochs: 8
+  batch_size: 64
+  lr: 2.0e-05
+  weight_decay: 0.01
+  scheduler: linear
+  warmup_ratio: 0.1
+  grad_clip: 1.0
+  patience: 5
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+output:
+  results_dir: results
+  ckpt_dir: checkpoints

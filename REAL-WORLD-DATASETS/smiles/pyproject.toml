@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smiles-pp"
+version = "0.1.0"
+description = "Reproducible SMILES molecular-property prediction pipeline"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy<2",
+    "pandas",
+    "pyyaml",
+    "tqdm",
+    "scikit-learn",
+    "rdkit",
+    "deepchem",
+    "torch",
+    "transformers>=4.40,<5",
+]
+
+[project.scripts]
+smiles-pp = "smiles_pp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

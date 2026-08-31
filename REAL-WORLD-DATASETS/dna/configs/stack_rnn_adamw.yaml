@@ -1,0 +1,29 @@
+seed: 42
+n_outputs: 919       # DeepSEA chromatin features
+
+model:
+  type: stack_rnn        # 1-layer unidirectional differentiable-stack RNN
+  input_dim: 4
+  proj_dim: 128
+  hidden_size: 256
+  num_layers: 1
+  bidirectional: false
+  stack_cell_size: 16
+  stack_size: 30
+  n_stacks: 1
+  inner_nonlinearity: tanh
+  dropout: 0.3
+  pooling: mean
+
+training:
+  optimizer: adamw       # NaN-guarded AdamW (SafeAdamW); == torch AdamW when grads are finite
+  batch_size: 128
+  epochs: 15
+  lr: 0.0005
+  weight_decay: 0.00001
+  gradient_clip: 0.5   # gradient clipping applied every step
+  use_amp: false
+  use_pos_weight: false
+  reverse_complement_augmentation: true
+  num_workers: 4
+  # NaN-skipping: steps with any non-finite gradient are skipped (see optim.py)

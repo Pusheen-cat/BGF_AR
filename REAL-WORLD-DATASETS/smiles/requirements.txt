@@ -1,0 +1,13 @@
+# Pip dependencies (Python 3.10/3.11). For GPU PyTorch, install torch first from
+# the appropriate CUDA index, e.g. (CUDA 12.8):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+# then: pip install -r requirements.txt
+numpy<2
+pandas
+pyyaml
+tqdm
+scikit-learn
+rdkit
+deepchem==2.8.0
+torch
+transformers>=4.40,<5

@@ -1,0 +1,30 @@
+name: bbbp_chemberta2
+task:
+  name: bbbp
+  type: classification
+  n_tasks: 1
+data:
+  dataset: bbbp
+  splitter: scaffold
+  cache_dir: data
+  max_length: 256
+model:
+  type: chemberta
+  pretrained: DeepChem/ChemBERTa-77M-MLM
+  dropout: 0.1
+train:
+  epochs: 15
+  batch_size: 32
+  lr: 2.0e-05
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  scheduler: linear
+  grad_clip: 1.0
+  patience: 5
+seeds:
+- 0
+- 1
+- 2
+output:
+  results_dir: results
+  ckpt_dir: checkpoints
