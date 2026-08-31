@@ -1,9 +1,19 @@
-absl-py
-dm-haiku
-dm-tree
+# Pinned to the environment the paper's experiments were run with
+# (Python 3.11).
+#
+# JAX with GPU support: the version below is the CPU wheel; for CUDA install
+# the matching jaxlib build instead, e.g.
+#   pip install "jax[cuda11_pip]==0.4.20" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+# (the experiments were run with jaxlib 0.4.20+cuda11.cudnn86).
+absl-py==2.1.0
+chex==0.1.85
+dm-haiku==0.0.11
+dm-tree==0.1.8
 git+https://github.com/deepmind/einshape
-jax
-numpy
-optax
-tqdm
-typing-extensions
+jax==0.4.20
+matplotlib==3.9.2
+numpy==1.26.3
+optax==0.1.8
+scipy==1.12.0
+tqdm==4.66.1
+typing-extensions==4.9.0
